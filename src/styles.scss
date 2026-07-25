@@ -1,1 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'themes/variables' as v;
+
+@use 'bootstrap/scss/bootstrap' with (
+  $theme-colors: v.$theme-colors
+);
