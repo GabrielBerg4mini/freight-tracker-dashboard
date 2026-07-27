@@ -1,6 +1,7 @@
-<section class="mx-auto w-25 bg-light p-4 rounded shadow">
+<section class="w-540px m-auto bg-light p-5 rounded-2">
   <app-login-form-component
     [loginForm]="loginForm"
+    [loading]="loadingService.isLoading()"
     (formSubmit)="onSubmit()"
   ></app-login-form-component>
 </section>
