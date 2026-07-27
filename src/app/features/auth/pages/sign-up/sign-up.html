@@ -1,0 +1,7 @@
+<section class="w-540px m-auto bg-light p-5 rounded-2">
+  <app-register-form-component
+    [signUpForm]="signUpForm"
+    [loading]="loadingService.isLoading()"
+    (formSubmit)="onSubmit()"
+  ></app-register-form-component>
+</section>
