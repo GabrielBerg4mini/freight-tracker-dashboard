@@ -1,33 +1,37 @@
-<div class="mb-3 w-50 mx-auto">
-  <app-logo-component [classCustom]="'mb-5'"></app-logo-component>
-  <strong>Bem-vindo de volta!</strong>
+<div class="mb-3">
+  <app-logo-component [classCustom]="'mb-4 w-50 mx-auto'"></app-logo-component>
+  <strong>Bem-vindo(a) de volta!</strong>
 </div>
 <form [formGroup]="loginForm" (ngSubmit)="formSubmit.emit()">
-  <app-form-field-component name="email">
+  <app-form-field-component name="email" textLabel="E-mail">
     <app-input-component
-      placeholder="Email"
+      placeholder="joão@gmail.com"
       type="email"
-      id="email"
+      idCustom="email"
       formControlName="email"
     ></app-input-component>
   </app-form-field-component>
-  <app-form-field-component name="password">
-    <app-input-component
-      placeholder="Senha"
-      type="password"
-      id="password"
+  <app-form-field-component name="password" textLabel="Senha">
+    <app-password-toggle-component
+      placeholder="*********"
       formControlName="password"
-    ></app-input-component>
+      idCustom="password"
+    ></app-password-toggle-component>
   </app-form-field-component>
-  <app-button-component type="submit" [classCustom]="'btn-primary my-3'"
-    >Entrar</app-button-component
-  >
+  <div class="d-flex justify-content-center align-items-center">
+    <app-button-component
+      type="submit"
+      [classCustom]="'btn-primary my-3 px-5rem py-2'"
+      [disabled]="loading"
+      >Entrar</app-button-component
+    >
+  </div>
   <app-divider-component></app-divider-component>
 </form>
 
 <div class="text-center">
   <span class="text-secondary">Não tem uma conta?</span>
-  <app-link-component [routerLink]="'/register'" [classCustom]="'btn btn-link text-primary'"
+  <app-link-component href="/sign-up" [classCustom]="'btn btn-link text-primary'"
     >Cadastre-se</app-link-component
   >
 </div>

@@ -4,7 +4,7 @@ import {  AppLogoComponent,
   DividerComponent,
   InputComponent,
   LinkComponent } from '../../atoms/index';
-import { FormFieldComponent } from '../../molecules/form-field-component/form-field-component';
+import { FormFieldComponent, PasswordToggleComponent } from '../../molecules/index';
 import { ReactiveFormsModule, FormGroup } from "@angular/forms";
 import { RouterLink } from "@angular/router";
 
@@ -15,7 +15,9 @@ import { RouterLink } from "@angular/router";
     DividerComponent,
     LinkComponent,
     InputComponent,
-    FormFieldComponent, ReactiveFormsModule, RouterLink],
+    FormFieldComponent,
+    PasswordToggleComponent,
+    ReactiveFormsModule, RouterLink],
   templateUrl: './login-form-component.html',
   styleUrl: './login-form-component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -23,5 +25,6 @@ import { RouterLink } from "@angular/router";
 export class LoginFormComponent {
 
   @Input() loginForm: FormGroup = new FormGroup({});
+  @Input() loading: boolean = false;
   @Output() formSubmit = new EventEmitter<void>();
 }

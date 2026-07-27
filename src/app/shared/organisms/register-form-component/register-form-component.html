@@ -1,1 +1,52 @@
-<p>register-form-component works!</p>
+<div class="mb-3">
+  <app-logo-component [classCustom]="'mb-4 w-50 mx-auto'"></app-logo-component>
+  <strong>Bem-vindo(a) ao nosso sistema!</strong>
+</div>
+<form [formGroup]="signUpForm" (ngSubmit)="formSubmit.emit()">
+  <app-form-field-component name="name" textLabel="Nome completo">
+    <app-input-component
+      placeholder="João da Silva"
+      type="text"
+      idCustom="name"
+      formControlName="name"
+    ></app-input-component>
+  </app-form-field-component>
+  <app-form-field-component name="email" textLabel="E-mail">
+    <app-input-component
+      placeholder="joão@gmail.com"
+      type="email"
+      idCustom="email"
+      formControlName="email"
+    ></app-input-component>
+  </app-form-field-component>
+  <app-form-field-component name="password" textLabel="Senha">
+    <app-password-toggle-component
+      placeholder="*********"
+      formControlName="password"
+      idCustom="password"
+    ></app-password-toggle-component>
+  </app-form-field-component>
+  <app-form-field-component name="password_confirmation" textLabel="Confirmação de Senha">
+    <app-password-toggle-component
+      placeholder="*********"
+      formControlName="password_confirmation"
+      idCustom="password_confirmation"
+    ></app-password-toggle-component>
+  </app-form-field-component>
+  <div class="d-flex justify-content-center align-items-center">
+    <app-button-component
+      type="submit"
+      [classCustom]="'btn-primary my-3 px-5rem py-2'"
+      [disabled]="loading"
+      >Registrar-se</app-button-component
+    >
+  </div>
+  <app-divider-component></app-divider-component>
+</form>
+
+<div class="text-center">
+  <span class="text-secondary">Já tem uma conta?</span>
+  <app-link-component href="/sign-in" [classCustom]="'btn btn-link text-primary'"
+    >Faça login</app-link-component
+  >
+</div>
