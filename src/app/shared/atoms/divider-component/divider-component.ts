@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-divider-component',
@@ -7,4 +7,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './divider-component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DividerComponent {}
+export class DividerComponent {
+  @Input() visible: boolean = true;
+}

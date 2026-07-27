@@ -1,10 +1,14 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-link-component',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './link-component.html',
   styleUrl: './link-component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LinkComponent {}
+export class LinkComponent {
+  @Input() classCustom: string = '';
+  @Input() href: string = '';
+}

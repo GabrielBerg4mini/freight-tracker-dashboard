@@ -8,7 +8,8 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
-  @Input() class: string = '';
+  @Input() classCustom: string = '';
   @Input() disabled: boolean = false;
   @Input() onClick: () => void = () => {};
+  @Input() type: 'button' | 'submit' | 'reset' = 'button';
 }

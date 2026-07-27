@@ -1,1 +1,23 @@
-<p>input-component works!</p>
+@if (isInput) {
+  <input
+    [type]="type"
+    [placeholder]="placeholder"
+    [formControlName]="name"
+    [class]="classCustom"
+    class="form-control"
+    [id]="id"
+  />
+} @else if (isTextarea) {
+  <textarea
+    [placeholder]="placeholder"
+    [formControlName]="name"
+    [class]="classCustom"
+    [rows]="rows"
+    class="form-control"
+    [id]="id"
+  ></textarea>
+} @else {
+  <select [formControlName]="name" [class]="classCustom" class="form-control" [id]="id">
+    <ng-content></ng-content>
+  </select>
+}
