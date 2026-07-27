@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppLogoComponent } from './app-logo-component';
+import { AppLogoComponent } from './logo-component';
 
 describe('AppLogoComponent', () => {
   let component: AppLogoComponent;
