@@ -1,0 +1,33 @@
+<div class="mb-3 w-50 mx-auto">
+  <app-logo-component [classCustom]="'mb-5'"></app-logo-component>
+  <strong>Bem-vindo de volta!</strong>
+</div>
+<form [formGroup]="loginForm" (ngSubmit)="formSubmit.emit()">
+  <app-form-field-component name="email">
+    <app-input-component
+      placeholder="Email"
+      type="email"
+      id="email"
+      formControlName="email"
+    ></app-input-component>
+  </app-form-field-component>
+  <app-form-field-component name="password">
+    <app-input-component
+      placeholder="Senha"
+      type="password"
+      id="password"
+      formControlName="password"
+    ></app-input-component>
+  </app-form-field-component>
+  <app-button-component type="submit" [classCustom]="'btn-primary my-3'"
+    >Entrar</app-button-component
+  >
+  <app-divider-component></app-divider-component>
+</form>
+
+<div class="text-center">
+  <span class="text-secondary">Não tem uma conta?</span>
+  <app-link-component [routerLink]="'/register'" [classCustom]="'btn btn-link text-primary'"
+    >Cadastre-se</app-link-component
+  >
+</div>
