@@ -9,4 +9,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 })
 export class FormFieldComponent {
   @Input() name: string = '';
+  @Input() textLabel: string = '';
 }
