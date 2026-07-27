@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, Output, EventEmitter } from '@angular/core';
-import {  AppLogoComponent,
+import {  LogoComponent,
   ButtonComponent,
   DividerComponent,
   InputComponent,
@@ -10,7 +10,7 @@ import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-login-form-component',
-  imports: [AppLogoComponent,
+  imports: [LogoComponent,
     ButtonComponent,
     DividerComponent,
     LinkComponent,

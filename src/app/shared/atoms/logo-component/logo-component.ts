@@ -8,6 +8,6 @@ import { RouterLink } from "@angular/router";
   styleUrl: './logo-component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppLogoComponent {
+export class LogoComponent {
   @Input() classCustom: string = '';
 }
