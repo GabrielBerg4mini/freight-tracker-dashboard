@@ -43,7 +43,7 @@ export class SignIn {
       next: (response) => {
         this.loadingService.hide();
         this.toastService.show(response.message, 'success');
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard/clients']);
       },
       error: (error) => {
         this.loadingService.hide();
