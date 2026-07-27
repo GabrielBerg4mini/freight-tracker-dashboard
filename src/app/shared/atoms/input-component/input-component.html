@@ -2,22 +2,36 @@
   <input
     [type]="type"
     [placeholder]="placeholder"
-    [formControlName]="name"
+    [value]="value"
+    [disabled]="disabled"
+    (input)="handleInput($event)"
+    (blur)="onTouched()"
     [class]="classCustom"
     class="form-control"
-    [id]="id"
+    [id]="idCustom"
   />
 } @else if (isTextarea) {
   <textarea
     [placeholder]="placeholder"
-    [formControlName]="name"
+    [value]="value"
+    [disabled]="disabled"
+    (input)="handleInput($event)"
+    (blur)="onTouched()"
     [class]="classCustom"
     [rows]="rows"
     class="form-control"
-    [id]="id"
+    [id]="idCustom"
   ></textarea>
 } @else {
-  <select [formControlName]="name" [class]="classCustom" class="form-control" [id]="id">
+  <select
+    [value]="value"
+    [disabled]="disabled"
+    (change)="handleInput($event)"
+    (blur)="onTouched()"
+    [class]="classCustom"
+    class="form-control"
+    [id]="idCustom"
+  >
     <ng-content></ng-content>
   </select>
 }
