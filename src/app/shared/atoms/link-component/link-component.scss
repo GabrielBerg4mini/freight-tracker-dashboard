@@ -1,0 +1,14 @@
+:host {
+  display: block;
+}
+
+.nav__text {
+  display: block;
+  width: 100%;
+  color: #343434;
+
+  &:hover,
+  &.active {
+    color: #f96f00;
+  }
+}

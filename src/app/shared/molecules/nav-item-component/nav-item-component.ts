@@ -9,5 +9,7 @@ import { LinkComponent } from '../../atoms';
 })
 export class NavItemComponent {
   @Input() textLink: string = '';
-  @Input() isActive: boolean = false;
+  @Input() href: string = '';
+  @Input() nameIcon: string = '';
+  isActive = false;
 }

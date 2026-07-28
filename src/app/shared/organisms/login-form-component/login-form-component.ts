@@ -6,8 +6,6 @@ import {  LogoComponent,
   LinkComponent } from '../../atoms/index';
 import { FormFieldComponent, PasswordToggleComponent } from '../../molecules/index';
 import { ReactiveFormsModule, FormGroup } from "@angular/forms";
-import { RouterLink } from "@angular/router";
-
 @Component({
   selector: 'app-login-form-component',
   imports: [LogoComponent,
@@ -17,7 +15,7 @@ import { RouterLink } from "@angular/router";
     InputComponent,
     FormFieldComponent,
     PasswordToggleComponent,
-    ReactiveFormsModule, RouterLink],
+    ReactiveFormsModule],
   templateUrl: './login-form-component.html',
   styleUrl: './login-form-component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

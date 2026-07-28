@@ -1,1 +1,8 @@
-<a [routerLink]="href" [class]="classCustom"><ng-content></ng-content></a>
+<a
+  [routerLink]="href"
+  [routerLinkActive]="linkActive"
+  [routerLinkActiveOptions]="{ exact: true }"
+  (isActiveChange)="isActiveChange.emit($event)"
+  [class]="classCustom"
+  ><ng-content></ng-content
+></a>

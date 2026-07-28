@@ -1,6 +1,20 @@
-<nav class="p-3">
-  <app-logo-component [classCustom]="'mb-3 w-50'"></app-logo-component>
-  <ul class="">
-    <app-nav-item-component [textLink]="'Clientes'" [isActive]="true"></app-nav-item-component>
+<nav class="py-5 px-3">
+  <app-logo-component [classCustom]="'mb-4 img-fluid w-75'"></app-logo-component>
+  <ul class="list-unstyled">
+    <app-nav-item-component
+      [textLink]="'Clientes'"
+      [nameIcon]="'bi bi-people-fill'"
+      [href]="'/dashboard/clients'"
+    ></app-nav-item-component>
+    <app-nav-item-component
+      [textLink]="'Produtos'"
+      [nameIcon]="'bi bi-bag-fill'"
+      [href]="'/dashboard/products'"
+    ></app-nav-item-component>
+    <app-nav-item-component
+      [textLink]="'Fretes'"
+      [nameIcon]="'bi bi-truck-front-fill'"
+      [href]="'/dashboard/fretes'"
+    ></app-nav-item-component>
   </ul>
 </nav>

@@ -1,0 +1,11 @@
+.nav {
+  background: transparent;
+  cursor: pointer;
+  color: #343434;
+
+  &:hover,
+  &.active {
+    background: rgb(248, 246, 243);
+    color: #f96f00;
+  }
+}

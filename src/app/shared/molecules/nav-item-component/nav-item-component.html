@@ -1,8 +1,12 @@
-<li class="py-2 d-flex align-items-center gap-2" [class]="{ 'bg-light': isActive }">
-  <i class="bi bi-people-fill"></i>
+<li class="py-2 px-3 rounded-2 mb-2 nav" [class.active]="isActive">
   <app-link-component
-    href="/dashboard/clients"
-    [classCustom]="'text-primary text-decoration-none py-2'"
-    >{{ textLink }}</app-link-component
+    class="flex-grow-1"
+    [href]="href"
+    [classCustom]="'text-decoration-none py-2 nav__text d-flex align-items-center gap-2'"
+    [linkActive]="'active'"
+    (isActiveChange)="isActive = $event"
   >
+    <i class="bi" [class]="nameIcon"></i>
+    {{ textLink }}
+  </app-link-component>
 </li>
