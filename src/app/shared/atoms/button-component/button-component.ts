@@ -12,4 +12,6 @@ export class ButtonComponent {
   @Input() disabled: boolean = false;
   @Input() onClick: () => void = () => {};
   @Input() type: 'button' | 'submit' | 'reset' = 'button';
+  @Input() dataBsToggle: string = '';
+  @Input() ariaExpanded: boolean = false;
 }

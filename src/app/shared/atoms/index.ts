@@ -9,6 +9,5 @@ export {
   ButtonComponent,
   DividerComponent,
   InputComponent,
-  LinkComponent,
+  LinkComponent
 };
-
