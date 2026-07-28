@@ -1,0 +1,27 @@
+<table class="table table-striped-columns table-hover">
+  <thead>
+    <tr>
+      @for (header of columns; track header.field) {
+        <th>{{ header.name }}</th>
+      }
+    </tr>
+  </thead>
+  <tbody>
+    @for (row of items; track row) {
+      <tr>
+        @for (header of columns; track header.field) {
+          <td>
+            @switch (header.type) {
+              @case ('image') {
+                <img [src]="row[header.field]" class="rounded-circle" width="32" height="32" />
+              }
+              @default {
+                {{ row[header.field] }}
+              }
+            }
+          </td>
+        }
+      </tr>
+    }
+  </tbody>
+</table>
