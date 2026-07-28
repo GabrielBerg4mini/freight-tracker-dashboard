@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
 import { ApiResponse } from '../../models/api-response';
@@ -11,7 +11,7 @@ export class ApiService {
 
   private readonly url: string = environment.apiUrl;
 
-  constructor(private http: HttpClient) {}
+  private http = inject(HttpClient);
 
   get<T>(endpoint: string): Observable<ApiResponse<T>> {
     return this.http.get<ApiResponse<T>>(
