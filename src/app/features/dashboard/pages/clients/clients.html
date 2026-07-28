@@ -1,3 +1,13 @@
 <section class="w-20 border-end border-2 border-light-subtle min-vh-100 position-fixed">
   <app-sidebar-component></app-sidebar-component>
 </section>
+<section class="min-vh-100 dashboard">
+  <app-header-component></app-header-component>
+  <section class="container-fluid p-5 bg-light min-vh-100">
+    <div class="table-responsive">
+      @if (clients$ | async; as clients) {
+        <app-table-component [columns]="columns" [items]="clients"></app-table-component>
+      }
+    </div>
+  </section>
+</section>
