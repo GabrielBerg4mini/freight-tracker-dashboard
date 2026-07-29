@@ -1,0 +1,1 @@
+import{e as i,i as n}from"./chunk-LNKJIWCG.js";var o=class a{loadingSignal=n(!1);isLoading=this.loadingSignal.asReadonly();show(){this.loadingSignal.set(!0)}hide(){this.loadingSignal.set(!1)}static \u0275fac=function(e){return new(e||a)};static \u0275prov=i({token:a,factory:a.\u0275fac,providedIn:"root"})};export{o as a};
