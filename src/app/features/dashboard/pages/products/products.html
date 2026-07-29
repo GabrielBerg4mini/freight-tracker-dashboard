@@ -1,0 +1,18 @@
+<app-sidebar-component></app-sidebar-component>
+<section class="dashboard bg-light min-vh-100">
+  <app-header-component></app-header-component>
+  <section class="p-md-5 py-5 px-3">
+    <section>
+      <app-breadcrumb-component [breadcrumbItems]="breadcrumbItems"></app-breadcrumb-component>
+    </section>
+    <app-add-button-component
+      [textButton]="'Produto'"
+      (addClick)="onAddProduct()"
+    ></app-add-button-component>
+    <div class="table-responsive">
+      @if (products$ | async; as products) {
+        <app-table-component [columns]="columns" [items]="products"></app-table-component>
+      }
+    </div>
+  </section>
+</section>
