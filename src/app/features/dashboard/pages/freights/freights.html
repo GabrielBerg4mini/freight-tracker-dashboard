@@ -1,0 +1,15 @@
+<app-sidebar-component></app-sidebar-component>
+<section class="dashboard bg-light min-vh-100">
+  <app-header-component></app-header-component>
+  <section class="p-md-5 py-5 px-3">
+    <section>
+      <app-breadcrumb-component [breadcrumbItems]="breadcrumbItems"></app-breadcrumb-component>
+    </section>
+     <app-add-button-component [textButton]="'Frete'" (addClick)="onAddFreight()"></app-add-button-component>
+    <div class="table-responsive">
+      @if (freights$ | async; as freights) {
+        <app-table-component [columns]="columns" [items]="freights"></app-table-component>
+      }
+    </div>
+  </section>
+</section>
