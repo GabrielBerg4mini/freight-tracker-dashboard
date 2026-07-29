@@ -1,0 +1,13 @@
+<nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    @for (item of breadcrumbItems; track item.href) {
+      <li class="breadcrumb-item" [class.active]="item.active" [attr.aria-current]="item.active ? 'page' : null">
+        @if (item.active) {
+          {{ item.textBreadcrumb }}
+        } @else {
+          <app-link-component [href]="item.href">{{ item.textBreadcrumb }}</app-link-component>
+        }
+      </li>
+    }
+  </ol>
+</nav>
