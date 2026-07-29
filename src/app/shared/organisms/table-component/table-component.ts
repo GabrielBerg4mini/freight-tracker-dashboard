@@ -1,14 +1,15 @@
 import { Component, Input } from '@angular/core';
+import { CurrencyPipe } from '@angular/common';
 
 export interface TableColumn<T> {
   name: string;
   field: keyof T;
-  type?: 'text' | 'image';
+  type?: 'text' | 'image' | 'number' | 'date' | 'currency';
 }
 
 @Component({
   selector: 'app-table-component',
-  imports: [],
+  imports: [CurrencyPipe],
   templateUrl: './table-component.html',
   styleUrl: './table-component.scss',
 })

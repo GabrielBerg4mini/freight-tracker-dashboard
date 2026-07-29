@@ -1,4 +1,4 @@
-<table class="table table-striped-columns table-hover">
+<table class="table table-striped table-hover">
   <thead>
     <tr>
       @for (header of columns; track header.field) {
@@ -13,7 +13,10 @@
           <td>
             @switch (header.type) {
               @case ('image') {
-                <img [src]="row[header.field]" class="rounded-circle" width="32" height="32" />
+                <img [src]="row[header.field]" class="rounded-2" width="85" height="85" />
+              }
+              @case ('currency') {
+                {{ $any(row[header.field]) | currency: 'BRL' }}
               }
               @default {
                 {{ row[header.field] }}
