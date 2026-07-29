@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { SidebarComponent } from '../../../../shared/organisms/sidebar-component/sidebar-component';
 import { HeaderComponent } from '../../../../shared/organisms/header-component/header-component';
 import { TableComponent } from '../../../../shared/organisms/table-component/table-component';
+import { AddButtonComponent } from '../../../../shared/organisms/add-button-component/add-button-component';
+import { BreadcrumbComponent } from '../../../../shared/organisms/breadcrumb-component/breadcrumb-component';
 import { ClientsService } from '../../services/clients/clients';
 import { LoadingService } from '../../../../core/services/loading/loading';
 import { ToastService } from '../../../../core/services/toast/toast';
@@ -11,7 +13,7 @@ import { Client } from '../../models/client';
 
 @Component({
   selector: 'app-clients',
-  imports: [SidebarComponent, HeaderComponent, TableComponent, AsyncPipe],
+  imports: [SidebarComponent, HeaderComponent, BreadcrumbComponent, AddButtonComponent, TableComponent, AsyncPipe],
   templateUrl: './clients.html',
   styleUrl: './clients.scss'
 })
@@ -42,12 +44,21 @@ export class Clients {
     this.loadClientsTable();
   }
 
+  onAddClient(): void {
+    // Lógica para adicionar um novo cliente
+  }
+
   columns: TableColumn<Client>[] = [
     { name: 'ID', field: 'id' },
     { name: 'Nome', field: 'fullName' },
     { name: 'Email', field: 'email' },
     { name: 'Telefone', field: 'phone' },
     { name: 'CPF/CNPJ', field: 'cpfCnpj' },
+  ];
+
+  breadcrumbItems = [
+    { href: '/dashboard/clients', active: false, textBreadcrumb: 'Dashboard' },
+    { href: '/dashboard/clients', active: true, textBreadcrumb: 'Clientes' },
   ];
 
 }
