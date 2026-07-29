@@ -1,20 +1,40 @@
-<nav class="py-5 px-3">
-  <app-logo-component [classCustom]="'mb-4 img-fluid w-75'"></app-logo-component>
-  <ul class="list-unstyled">
-    <app-nav-item-component
-      [textLink]="'Clientes'"
-      [nameIcon]="'bi bi-people-fill'"
-      [href]="'/dashboard/clients'"
-    ></app-nav-item-component>
-    <app-nav-item-component
-      [textLink]="'Produtos'"
-      [nameIcon]="'bi bi-bag-fill'"
-      [href]="'/dashboard/products'"
-    ></app-nav-item-component>
-    <app-nav-item-component
-      [textLink]="'Fretes'"
-      [nameIcon]="'bi bi-truck-front-fill'"
-      [href]="'/dashboard/fretes'"
-    ></app-nav-item-component>
-  </ul>
-</nav>
+<ng-template #navContent>
+  <nav class="py-5 px-3">
+    <app-logo-component [classCustom]="'mb-4 img-fluid w-75'"></app-logo-component>
+    <ul class="list-unstyled">
+      <app-nav-item-component
+        [textLink]="'Clientes'"
+        [nameIcon]="'bi bi-people-fill'"
+        [href]="'/dashboard/clients'"
+      ></app-nav-item-component>
+      <app-nav-item-component
+        [textLink]="'Produtos'"
+        [nameIcon]="'bi bi-bag-fill'"
+        [href]="'/dashboard/products'"
+      ></app-nav-item-component>
+      <app-nav-item-component
+        [textLink]="'Fretes'"
+        [nameIcon]="'bi bi-truck-front-fill'"
+        [href]="'/dashboard/freights'"
+      ></app-nav-item-component>
+    </ul>
+  </nav>
+</ng-template>
+
+<div
+  class="offcanvas offcanvas-start d-md-none"
+  tabindex="-1"
+  id="sidebarOffcanvas"
+  aria-labelledby="sidebarOffcanvasLabel"
+>
+  <div class="offcanvas-header">
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+  </div>
+  <div class="offcanvas-body p-0">
+    <ng-container [ngTemplateOutlet]="navContent"></ng-container>
+  </div>
+</div>
+
+<section class="w-20 border-end border-2 border-light-subtle min-vh-100 position-fixed d-none d-md-block">
+  <ng-container [ngTemplateOutlet]="navContent"></ng-container>
+</section>

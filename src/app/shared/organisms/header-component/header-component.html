@@ -1,5 +1,15 @@
-<header class="border-bottom box-shadow-sm">
+<header class="border-bottom box-shadow-sm bg-white">
   <nav class="d-flex justify-content-end align-items-center py-3 px-4">
+    <button
+      class="btn me-auto d-md-none"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#sidebarOffcanvas"
+      aria-controls="sidebarOffcanvas"
+      aria-label="Abrir menu"
+    >
+      <i class="bi bi-list fs-4"></i>
+    </button>
     <app-dropdown-item-component (logout)="onLogout()"></app-dropdown-item-component>
   </nav>
 </header>

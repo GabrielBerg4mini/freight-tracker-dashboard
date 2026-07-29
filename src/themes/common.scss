@@ -1,6 +1,7 @@
 // width and height
 .w-540px {
   width: 540px;
+  max-width: 90vw;
 }
 .w-20 {
   width: 20%;
@@ -13,4 +14,23 @@
 .px-5rem {
   padding-left: 5rem !important;
   padding-right: 5rem !important;
+}
+.dashboard {
+  margin-left: 20.2%;
+}
+
+// responsive override — below the tablet breakpoint the fixed sidebar column
+// is hidden (it becomes an offcanvas instead), so the content no longer needs
+// to make room for it. Desktop (>= 768px) keeps the layout above, untouched.
+@media (max-width: 767.98px) {
+  .dashboard {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .px-5rem {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
 }
