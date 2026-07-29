@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-button-component',
@@ -10,7 +10,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 export class ButtonComponent {
   @Input() classCustom: string = '';
   @Input() disabled: boolean = false;
-  @Input() onClick: () => void = () => {};
+  @Output() clicked = new EventEmitter<void>();
   @Input() type: 'button' | 'submit' | 'reset' = 'button';
   @Input() dataBsToggle: string = '';
   @Input() ariaExpanded: boolean = false;

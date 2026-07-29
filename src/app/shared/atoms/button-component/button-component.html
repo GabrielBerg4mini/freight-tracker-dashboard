@@ -1,3 +1,11 @@
-<button class="btn" [class]="classCustom" [disabled]="disabled" (click)="onClick()" [type]="type" [attr.data-bs-toggle]="dataBsToggle" [attr.aria-expanded]="ariaExpanded">
+<button
+  class="btn"
+  [class]="classCustom"
+  [disabled]="disabled"
+  (click)="clicked.emit()"
+  [type]="type"
+  [attr.data-bs-toggle]="dataBsToggle"
+  [attr.aria-expanded]="ariaExpanded"
+>
   <ng-content></ng-content>
 </button>
