@@ -1,59 +1,71 @@
-# Project Freight Tracker (BTG Pactual)
+# Freight Tracker Dashboard
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.19.
+Painel administrativo para gestão de clientes, produtos e fretes, construído em Angular moderno (standalone, sem NgModules), seguindo Atomic Design e uma arquitetura em camadas (`core` / `shared` / `features`).
 
-## Development server
+Projeto pessoal de portfólio, focado em arquitetura escalável e boas práticas de Angular: componentes standalone, Signals, Reactive Forms, RxJS (`BehaviorSubject` como estado compartilhado, operadores `map`/`tap`/`catchError`), interceptors e guards funcionais, camada de API tipada sobre um envelope de resposta padronizado, e um design system documentado com Storybook.
 
-To start a local development server, run:
+## Screenshots
 
-```bash
-ng serve
+**Login**
+
+![Tela de login](docs/screenshots/sign-in.png)
+
+**Clientes**
+
+![Listagem de clientes](docs/screenshots/clients.png)
+
+**Produtos**
+
+![Listagem de produtos](docs/screenshots/products.png)
+
+## Stack
+
+- **Angular 21** — componentes standalone, novo build system (esbuild + Vite)
+- **Bootstrap 5** + SCSS (tema customizado)
+- **RxJS** — estado compartilhado via `BehaviorSubject`, pipelines com `map`/`tap`/`catchError`
+- **Vitest** — testes unitários
+- **Storybook** — documentação e desenvolvimento isolado de componentes (Atomic Design)
+
+## Arquitetura
+
+```
+src/app/
+├── core/        # services e guards transversais (Api, Auth, Storage, Loading, Toast) e interceptors
+├── shared/      # design system: atoms, molecules e organisms reutilizados em todo o app
+├── features/    # páginas por domínio (auth, dashboard: clients/products/freights),
+│                # cada uma com seu próprio service, DTO e mapper
+└── layouts/     # shells de rota (auth layout, main layout)
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Principais decisões:
+- **`core` nunca depende de `features`** — services usados por guards/interceptors (ex.: `AuthService`) ficam em `core`, evitando dependência invertida.
+- **DTO + mapper por feature** — a API responde em `snake_case`; cada service converte para o modelo de domínio (`camelCase`) na borda, isolando o resto da aplicação do formato bruto da API.
+- **`HttpInterceptor` para o token Bearer** — a autenticação é injetada automaticamente em toda requisição, sem cada service precisar conhecer o `StorageService`.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Como rodar
 
 ```bash
-ng generate --help
+npm install
+npm start
 ```
 
-## Building
+Acesse `http://localhost:4200`.
 
-To build the project run:
+Para a lista completa de comandos (testes, Storybook, build, geração de código, deploy), veja [docs/comandos.md](docs/comandos.md).
+
+## Testes
 
 ```bash
-ng build
+npm test
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Storybook
 
 ```bash
-ng test
+npx compodoc -p .storybook/tsconfig.doc.json -e json -d .
+npm run storybook
 ```
 
-## Running end-to-end tests
+## Deploy
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Publicado via GitHub Pages: **https://gabrielberg4mini.github.io/freight-tracker-dashboard/**
