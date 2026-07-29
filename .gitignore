@@ -44,3 +44,9 @@ __screenshots__/
 Thumbs.db
 
 /environments
+
+*storybook.log
+storybook-static
+
+# Compodoc
+/documentation.json

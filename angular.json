@@ -75,6 +75,22 @@
         },
         "test": {
           "builder": "@angular/build:unit-test"
+        },
+        "storybook": {
+          "builder": "@storybook/angular-vite:start-storybook",
+          "options": {
+            "configDir": ".storybook",
+            "browserTarget": "vaga:build",
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular-vite:build-storybook",
+          "options": {
+            "configDir": ".storybook",
+            "browserTarget": "vaga:build",
+            "outputDir": "storybook-static"
+          }
         }
       }
     }
